@@ -13,7 +13,7 @@ Route::get('/login', [
     'login'
 ])->name('app.login');
 
-Route::get('/login/verify', [
+Route::post('/login/verify', [
     App\Http\Controllers\AuthController::class,
     'login_verify'
 ])->name('app.login.verify');
@@ -26,7 +26,7 @@ Route::get('/registration', [
 ])->name('app.registration');
 
 
-Route::get('/registration/verify', [
+Route::post('/registration/verify', [
     App\Http\Controllers\AuthController::class,
     'registration_verify'
 ])->name('app.registration.verify');
