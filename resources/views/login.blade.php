@@ -14,15 +14,23 @@
 <body>
     <div class="container">
         <div class="row d-flex justify-content-center mt-5">
-        <form action ="{{ URL::route('app.login.verify') }}" method="post" class="col-4">
+        <form method="post" action ="{{ URL::route('app.login.verify') }}" class="col-4">
+        @csrf
+
+        @if(session('error'))
+        <div class="mb-3">
+                <span class="alert alert-sm alert-danger">
+                    {{ session('error') }}
+                </span>
+        </div>
+        @endif
                 <div class="mb-3">
-                    <label for="form-label">Email address</label>
-                    <input type="email" class="form-control">
-                    
+                    <label class="form-label">Email address</label>
+                    <input type="email" class="form-control" name="email">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" name="password">
                 </div>
                 <a href="{{ URL::route('app.registration') }}">Create an Account</a>
                 <br>

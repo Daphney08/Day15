@@ -15,11 +15,11 @@
         <div class="container">
             <div class="row d-flex justify-content-center mt-5">
                 <div class="card" style="width: 18rem;">
-                    <img src="https://pbs.twimg.com/media/DhGRqSLUYAAibP4.jpg" class="card-img-top rounded-pill" alt="...">
+                    <img src="https://64.media.tumblr.com/370ce558153de9e7418400f1b2572d98/tumblr_ptqbnoY1Vd1wt7ek9o1_1280.jpg" class="card-img-top rounded-pill" alt="...">
 
                     <div class="card-body">
-                        <h5 class="card-title">Shanika Yup</h5>
-                        <p class="card-text">shanikayup@gmail.com</p>
+                        <h5 class="card-title">Ella Yup</h5>
+                        <p class="card-text">ellayup@gmail.com</p>
                         <a href="#" class="btn btn-primary">log out</a>
                     </div>
                 </div>

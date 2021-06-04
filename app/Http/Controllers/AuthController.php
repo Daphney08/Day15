@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use\App\Models\User;
 
-use Redirect, Storage;
+use Redirect, Storage, Auth;
 
 class AuthController extends Controller
 {
@@ -39,7 +39,13 @@ class AuthController extends Controller
 
     public function login_verify()
     {
-       
+      $login = Auth::attempt($this->request->except('_token'));
+
+      if($login){
+          Redirect::route('app');
+      }
+      return Redirect::route('app.login')
+                        ->withError('Invalid user credentials !');
     }
 
     public function registration_verify()
@@ -54,7 +60,19 @@ class AuthController extends Controller
          //putFile('folder_name', fileobject)
          $filename = Storage::disk('public')->putFile('avatar', $this->request->file);
 
-         dd($filename);
+         $this->request->merge([
+             'avatar' => $filename,
+                //encrypt password
+             'password' => bcrypt($this->request->password)
+         ]);
+
+         //save to db
+         User::create(
+             $this->request->except('file', '_token')
+         );
+
+         //redirect
+         return Redirect::route('app.login');
         
     }
    
