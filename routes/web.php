@@ -7,6 +7,7 @@ Route::get('/', [
     'index'
 ])->name('app');
 
+
 Route::get('/login', [
     App\Http\Controllers\AuthController::class,
     'login'
@@ -16,7 +17,6 @@ Route::get('/login/verify', [
     App\Http\Controllers\AuthController::class,
     'login_verify'
 ])->name('app.login.verify');
-
 
 
 
