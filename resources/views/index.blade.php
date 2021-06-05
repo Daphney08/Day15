@@ -15,12 +15,17 @@
         <div class="container">
             <div class="row d-flex justify-content-center mt-5">
                 <div class="card" style="width: 18rem;">
-                    <img src="https://64.media.tumblr.com/370ce558153de9e7418400f1b2572d98/tumblr_ptqbnoY1Vd1wt7ek9o1_1280.jpg" class="card-img-top rounded-pill" alt="...">
-
+                    <img src="{{ URL::asset('storage/'.Auth::user()->avatar) }}" class="card-img-top rounded-pill" alt="...">
+                        
                     <div class="card-body">
-                        <h5 class="card-title">Ella Yup</h5>
-                        <p class="card-text">ellayup@gmail.com</p>
-                        <a href="#" class="btn btn-primary">log out</a>
+                        <h5 class="card-title"></h5>
+                        {{ Auth::user()->name }}
+                        <p class="card-text"></p>
+                        {{ Auth::user()->email }}
+                        <div>
+                            <a href="{{ URL::route('app.logout') }}" class="btn btn-primary">log Out</a>
+                            <a href="{{ URL::route('app.chat') }}" class="btn btn-success">Chat Box</a>
+                        </div>
                     </div>
                 </div>
             </div>
